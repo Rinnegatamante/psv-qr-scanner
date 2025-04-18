@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+  repository_dispatch:
+    types: [run_build]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: vitasdk/vitasdk:latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '10'
+    - name: Compile project
+      run: |
+        make -j$(nproc)
+    - uses: actions/upload-artifact@v4
+      with:
+        name: "qr_scanner.vpk"
+        path: "qr_scanner.vpk"
