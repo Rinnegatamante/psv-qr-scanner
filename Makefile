@@ -6,7 +6,7 @@ LIBS = -lcurl -lquirc -lvita2d -lSceKernelDmacMgr_stub -lc -lSceCommonDialog_stu
 	-lSceNet_stub -lSceNetCtl_stub -lpng -lSceDisplay_stub -lSceGxm_stub -lSceAppMgr_stub \
 	-Wl,--whole-archive -lSceSysmodule_stub -Wl,--no-whole-archive -lSceCtrl_stub -lm \
 	-lSceAppUtil_stub -lScePgf_stub -ljpeg -lSceRtc_stub -lScePower_stub -lcurl -lssl -lcrypto -lz \
-	-lSceCamera_stub
+	-lSceCamera_stub -lzstd -Wl,--whole-archive -lpthread -Wl,--no-whole-archive
 
 COMMON_OBJS = main.o dialogs.o network.o
 	
